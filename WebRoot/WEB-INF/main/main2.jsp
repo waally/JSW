@@ -57,7 +57,7 @@ List<Dept> depts = (List<Dept>)request.getAttribute("depts");
             },
             colors: [
                      '#2f7ed8', 
-                     '#F0A5DC', 
+                     '#008100', 
                      '#8bbc21', 
                      '#910000', 
                      '#1aadce', 
@@ -143,7 +143,7 @@ List<Dept> depts = (List<Dept>)request.getAttribute("depts");
             },
             colors: [
                      '#2f7ed8', 
-                     '#F0A5DC', 
+                     '#008100', 
                      '#8bbc21', 
                      '#910000', 
                      '#1aadce', 
