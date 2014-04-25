@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+		<package name="default" namespace="/" extends="json-default"> 
+       		<interceptors>
+				<interceptor name ="auth" class ="com.hn.jsw.tj.intercepter.UserIntercepter" /> 
+				<interceptor-stack name="myInterceptorStack">
+					<interceptor-ref name="defaultStack"/>
+					<interceptor-ref name="auth"/>
+				</interceptor-stack>
+			</interceptors>
+			<default-interceptor-ref name="myInterceptorStack" />
+			<global-results>
+				<result name="login">index.jsp</result>
+			</global-results>
+			<action name="login" class="com.hn.jsw.tj.action.LoginAction">
+				<result name="failed">index.jsp</result>
+				<result name="admin">/WEB-INF/main/main1.jsp</result>
+				<result name="guest" type="chain">count</result>
+			</action>
+			<action name="count" class="com.hn.jsw.tj.action.CountAction">
+				<result name="SUCCESS">/WEB-INF/main/main2.jsp</result>
+			</action>
+			<action name="upload" class="com.hn.jsw.tj.action.UploadAction">
+				<result name="SUCCESS" type="chain">count</result>
+			</action>
+			<action name="show" class="com.hn.jsw.tj.action.ShowAction">
+        		<result name="SUCCESS" type="json">
+        	 		<param name="root">result</param>
+        		</result>
+       		</action>
+		</package>	
+</struts>
