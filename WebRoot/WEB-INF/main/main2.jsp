@@ -98,7 +98,6 @@ List<Dept> depts = (List<Dept>)request.getAttribute("depts");
                     }
                 }
             },
-            
             legend: {
             	align: 'center',
                 verticalAlign: 'bottom',
